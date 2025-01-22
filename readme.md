@@ -13,7 +13,7 @@ Sebelum memulai, pastikan Anda telah menyiapkan:
 1. **Terraform**:
    - Jika belum menginstall terraform, unduh dan instal Terraform dari [terraform.io](https://www.terraform.io/downloads).
 2. **Konfigurasi API Key atau Credentials**:
-   - Contoh: Simpan Service Account File JSON GCP di dalam folder `/iac-pgd/service-account`
+   - Contoh: Simpan Service Account File JSON GCP di dalam folder `/service-account/`
 3. **Editor Teks**:
    - Gunakan editor seperti **VS Code** atau **Vim** untuk mengedit file `.tf`.
 
@@ -28,13 +28,32 @@ git clone https://github.com/mhmd-deniafendi/iac-pgd.git
 cd /iac-pgd/pgd-phase2-iac
 ```
 
-### 2. **Inisialisasi Terraform**
+### 2. **Ganti Service Account**
+Ganti service account ini dibawah ini dengan service account yang anda miliki
+```bash
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "6.14.1"
+    }
+  }
+}
+
+provider "google" {
+  credentials   = file("../service-account/interconnect-pegadaian-a99abbfe73b8.json")
+  project       = var.project_id
+  region        = var.region
+}
+```
+
+### 3. **Inisialisasi Terraform**
 Inisialisasi proyek Terraform untuk mendownload plugin provider yang diperlukan:
 ```bash
 terraform init
 ```
 
-### 3. **Melihat Rencana Infrastruktur**
+### 4. **Melihat Rencana Infrastruktur**
 Gunakan perintah berikut untuk melihat sumber daya yang akan dibuat:
 ```bash
 terraform plan
@@ -46,7 +65,7 @@ terraform plan -target=module.compute-engine
 ```
 Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ingin dibuat
 
-### 4. **Perhatikan Ringkasan: Add, Change dan Destroy
+### 5. **Perhatikan Ringkasan: Add, Change dan Destroy
 1. **Add**:
    - Jumlah dari sumber daya atau resource yang akan dibuat
 2. **Change**:
@@ -54,7 +73,7 @@ Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ing
 3. **Desrtoy**:
    - Jumlah dari sumber daya atau resource yang akan dihapus
 
-### 5. **Menerapkan Konfigurasi**
+### 6. **Menerapkan Konfigurasi**
 Gunakan perintah ini untuk membuat sumber daya yang telah didefinisikan:
 ```bash
 terraform apply
@@ -65,7 +84,7 @@ terraform apply -target=module.compute-engine
 ```
 Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ingin dibuat
 
-### 6. **Mengelola Infrastruktur**
+### 7. **Mengelola Infrastruktur**
 - **Memperbarui Konfigurasi**: Perbarui file `.tf` Anda, lalu jalankan:
   ```bash
   terraform plan
