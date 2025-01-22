@@ -29,7 +29,7 @@ cd /iac-pgd/pgd-phase2-iac
 ```
 
 ### 2. **Ganti Service Account**
-Ganti service account ini dibawah ini dengan service account yang anda miliki
+Edit file `/pgd-phase2-iac/main.tf` lalu ganti service account dibawah ini dengan service account yang anda miliki,
 ```bash
 terraform {
   required_providers {
