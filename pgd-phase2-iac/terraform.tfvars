@@ -23,7 +23,6 @@ services        = [
 
 ### Value untuk assign default sa ke shared VPC project
 all_subnets = [ "pgd-dev-snet", "pgd-dev-snet-lb", "pgd-dev-snet-prx" ] ## list semua subnet yang ada di shared VPC subnet
-# members     = split("/n", file("../service-account/default-sa.txt"))
 
 ### Value untuk resource quota
 parent_project_name         = "projects/90977307766"
@@ -35,10 +34,10 @@ value_quota                 = "200"
 ### Value untuk compute engine
 project_host_id = "pgd-dev-shr-net-8af7114c"
 service_count   = "1"
-service_project = "pgd-dev-ckid-iac" ## == project id
+service_project = "pgd-dev-ckid-iac" ## project id
 network_name    = "pgd-dev-svpc"
 subnetwork_name = "pgd-dev-snet"
-instance_count  = "2" ## Jumlahnya harus == service count
+instance_count  = "2"
 instance_name   = "pgd-compute-test"
 instance_type   = "e2-small"
 instance_os     = "ubuntu-2004-lts"
