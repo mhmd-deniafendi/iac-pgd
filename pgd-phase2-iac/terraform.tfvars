@@ -4,21 +4,25 @@ zone            = "asia-southeast2-a"
 env             = "dev"
 
 ### Value untuk project
-project_name    = "pgd-dev-ckid-iac"
-project_id      = "pgd-dev-ckid-iac"
+project_name    = "pgd-dev-iac-cktest"
+project_id      = "pgd-dev-iac-cktest"
 folder_id       = "folders/898970906005"
 billing_account = "0156C8-36A651-D54AD0"
 deletion_policy = "DELETE"
 
+### Value untuk attach project ke shared vpc project
+project_host_id = "pgd-dev-shr-net-8af7114c"
+service_project = "pgd-dev-iac-cktest" ## harus sama dengan project id
+
 ### Value untuk enable api svc
 services        = [
-  "monitoring.googleapis.com",
-  "storage-api.googleapis.com",
-  "logging.googleapis.com",
-  "cloudquotas.googleapis.com",
-  "storage.googleapis.com",
-  "sqladmin.googleapis.com",
-  "run.googleapis.com"
+  "container.googleapis.com",
+  # "storage-api.googleapis.com",
+  # "logging.googleapis.com",
+  # "cloudquotas.googleapis.com",
+  # "storage.googleapis.com",
+  # "sqladmin.googleapis.com",
+  # "run.googleapis.com"
 ]
 
 ### Value untuk assign default sa ke shared VPC project
@@ -32,9 +36,6 @@ quota_id                    = "memory-per-project-region"
 value_quota                 = "200"
 
 ### Value untuk compute engine
-project_host_id = "pgd-dev-shr-net-8af7114c"
-service_count   = "1"
-service_project = "pgd-dev-ckid-iac" ## project id
 network_name    = "pgd-dev-svpc"
 subnetwork_name = "pgd-dev-snet"
 instance_count  = "2"

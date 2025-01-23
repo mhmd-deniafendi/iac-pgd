@@ -1,6 +1,6 @@
 output "project_name" {
   description = "nama project"
-  value       = module.create_project.project_name 
+  value       = module.create-project.project_name 
 }
 
 output "project_number" {
@@ -8,15 +8,10 @@ output "project_number" {
   value       = module.assign-default-rsc-sa.project_number
 }
 
-# output "network_name" {
-#   description = "nama network (vpc)"
-#   value       = module.compute-engine.network_name
-# }
-
-# output "subnetwork_name" {
-#   description = "nama subnetwork"
-#   value       = module.compute-engine.subnetwork_name
-# }
+output "compute_engine_name" {
+  description = "Nama compute engine yang telah dibuat"
+  value       = module.compute-engine.instance_name
+}
 
 output "gke_cluster_name" {
   description = "nama gke cluster"

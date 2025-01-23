@@ -93,12 +93,6 @@ variable "value_quota" {
 }
 
 ## Variable untuk assign default resrouce service account
-# variable "members" {
-#   default     = ""
-#   type        = string
-#   description = "email account atau service account default untuk ditambahkan di network shared VPC project"
-# }
-
 variable "all_subnets" {
   default     = []
   type        = list(string)
@@ -109,13 +103,7 @@ variable "all_subnets" {
 variable "project_host_id" {
   default     = ""
   type        = string
-  description = "nama variable untuk jumlah yang service yang akan dibuat"
-}
-
-variable "service_count" {
-  default     = ""
-  type        = string
-  description = "nama variable untuk jumlah yang service yang akan dibuat"
+  description = "nama variable untuk jumlah yang project service yang akan di attach"
 }
 
 variable "service_project" {

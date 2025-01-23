@@ -5,5 +5,5 @@ module "cloud-run" {
   cloud_run_services     = var.cloud_run_services
   traffic_type           = var.traffic_type
   percent                = var.percent
-  depends_on             = [module.create_project,module.enable-svc-api]
+  depends_on             = [module.create-project,module.enable-svc-api]
 }

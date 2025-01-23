@@ -1,4 +1,4 @@
-module "create_project" {
+module "create-project" {
   source          = "../modules/project/create-project"
   project_name    = var.project_name
   project_id      = var.project_id

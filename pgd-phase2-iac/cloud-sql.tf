@@ -8,5 +8,5 @@ module "cloud-sql" {
   env                     = var.env
   db_instances_properties = var.db_instances_properties
   authorized_networks     = var.authorized_networks
-  depends_on              = [module.create_project,module.enable-svc-api]
+  depends_on              = [module.create-project,module.enable-svc-api]
 }
