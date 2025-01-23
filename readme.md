@@ -65,7 +65,7 @@ terraform plan -target=module.compute-engine
 ```
 Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ingin dibuat
 
-### 5. **Perhatikan Ringkasan: Add, Change dan Destroy
+### 5. **Perhatikan Ringkasan: Add, Change dan Destroy**
 1. **Add**:
    - Jumlah dari sumber daya atau resource yang akan dibuat
 2. **Change**:
@@ -99,14 +99,14 @@ Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ing
 ---
 
 ## 📝 **Struktur Direktori**
-Contoh struktur direktori untuk proyek Terraform:
+Berikut ini struktur direktori untuk proyek Terraform:
 ```
-my-terraform-project/
-├── main.tf          # Konfigurasi utama
-├── variables.tf     # Definisi variabel
-├── terraform.tfvars # Nilai variabel
-├── outputs.tf       # Output dari Terraform
-└── README.md        # Dokumentasi proyek
+iac-pgd/
+├── modules             # Direktori untuk module dari masing-masing resource
+    ├── project         # Direktori untuk module membuat project
+    ├── std-resources   # Direktori untuk module membuat resource
+├── pgd-phase2-iac      # Direktori untuk menggunakan masing-masing module
+├── service-account     # Direktori untuk menyimpan service account
 ```
 
 ---

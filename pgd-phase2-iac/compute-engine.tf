@@ -14,4 +14,5 @@ module "compute-engine" {
   instance_tags   = var.instance_tags
   env             = var.env
   disk_size       = var.disk_size
+  depends_on      = [module.create_project]
 }

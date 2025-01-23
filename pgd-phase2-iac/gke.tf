@@ -14,4 +14,5 @@ module "gke" {
   tenant2             = var.tenant2
   network_name        = var.network_name
   subnetwork_name     = var.subnetwork_name
+  depends_on          = [module.create_project,module.enable-svc-api]
 }
