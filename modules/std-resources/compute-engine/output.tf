@@ -1,7 +1,4 @@
-output "network_name" {
-  value = data.google_compute_network.network.name
-}
-
-output "subnetwork_name" {
-  value = data.google_compute_subnetwork.sub-network.name
+output "instance_name" {
+  value = [for inst in google_compute_instance.instance : inst.name]
+  description = "Nama compute instance yang telah dibuat"
 }

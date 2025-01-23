@@ -3,16 +3,6 @@ variable "project_host_id" {
   type      = string
 }
 
-variable "service_count" {
-  default   = ""
-  type      = string
-}
-
-variable "service_project" {
-  default   = ""
-  type      = string
-}
-
 variable "network_name" {
   default   = ""
   type      = string
