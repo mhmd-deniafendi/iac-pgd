@@ -17,17 +17,6 @@ resource "google_gke_hub_scope" "hub_scope_default" {
   scope_id = "${each.key}-team"
 }
 
-## Enable Shared VPC network project
-resource "google_compute_shared_vpc_host_project" "shr-net" {
-  project = var.project_host_id
-}
-
-## Attach gke ke shared network project
-resource "google_compute_shared_vpc_service_project" "service-ce" {
-  host_project      = google_compute_shared_vpc_host_project.shr-net.project
-  service_project   = var.service_project
-}
-
 ## Get network dan subnetwork data
 data "google_compute_network" "network" {
   name    = var.network_name

@@ -99,7 +99,7 @@ db_instances_properties = [
 authorized_networks = [
   {
     name  = "Test Network auth"
-    cidr  = "182.0.215.187/32"
+    cidr  = "192.168.0.1/32"
   }
 ]
 
