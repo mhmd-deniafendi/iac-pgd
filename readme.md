@@ -53,7 +53,10 @@ Inisialisasi proyek Terraform untuk mendownload plugin provider yang diperlukan:
 terraform init
 ```
 
-### 4. **Melihat Rencana Infrastruktur**
+### 4. **File terraform.tfvars**
+Ganti nilai dari file `/pgd-phase2-iac/terraform.tfvars` dengan nilai yang di butuhkan
+
+### 5. **Melihat Rencana Infrastruktur**
 Gunakan perintah berikut untuk melihat sumber daya yang akan dibuat:
 ```bash
 terraform plan
@@ -65,7 +68,7 @@ terraform plan -target=module.compute-engine
 ```
 Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ingin dibuat
 
-### 5. **Perhatikan Ringkasan: Add, Change dan Destroy**
+### 6. **Perhatikan Ringkasan: Add, Change dan Destroy**
 1. **Add**:
    - Jumlah dari sumber daya atau resource yang akan dibuat
 2. **Change**:
@@ -73,7 +76,7 @@ Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ing
 3. **Desrtoy**:
    - Jumlah dari sumber daya atau resource yang akan dihapus
 
-### 6. **Menerapkan Konfigurasi**
+### 7. **Menerapkan Konfigurasi**
 Gunakan perintah ini untuk membuat sumber daya yang telah didefinisikan:
 ```bash
 terraform apply
@@ -84,7 +87,7 @@ terraform apply -target=module.compute-engine
 ```
 Ganti `module.compute-engine` dengan nama module sumber daya (resource) yang ingin dibuat
 
-### 7. **Mengelola Infrastruktur**
+### 8. **Mengelola Infrastruktur**
 - **Memperbarui Konfigurasi**: Perbarui file `.tf` Anda, lalu jalankan:
   ```bash
   terraform plan
