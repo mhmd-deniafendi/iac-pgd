@@ -53,22 +53,18 @@ variable "env" {
   type    = string
 }
 
-variable "instance_tags" {
-  default = []
-  type    = list(string)
-}
-
-variable "nodepool_name" {
-  default = ""
-  type    = string
-}
-
 variable "node_count" {
   default = ""
   type    = string
 }
 
-variable "machine_type" {
-  default = ""
-  type    = string
+variable "node_pools" {
+  default = {}
+  type    = map(object({
+    node_count    = string
+    machine_type  = string
+    enable_gvisor = bool
+    labels        = map(string)
+  }))
 }
+

@@ -8,7 +8,32 @@ variable "location" {
   type    = string
 }
 
+variable "region" {
+  default = ""
+  type    = string
+}
+
+variable "network_name" {
+  default = ""
+  type    = string
+}
+
+variable "subnetwork_name" {
+  default = ""
+  type    = string
+}
+
+variable "project_host_id" {
+  default = ""
+  type    = string
+}
+
 variable "ingress" {
+  default = ""
+  type    = string
+}
+
+variable "lb_name" {
   default = ""
   type    = string
 }

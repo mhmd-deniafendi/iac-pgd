@@ -1,3 +1,4 @@
 service-PROJECT_NUMBER@serverless-robot-prod.iam.gserviceaccount.com
 service-PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com
 service-PROJECT_NUMBER@dataflow-service-producer-prod.iam.gserviceaccount.com
+PROJECT_NUMBER@cloudservices.gserviceaccount.com

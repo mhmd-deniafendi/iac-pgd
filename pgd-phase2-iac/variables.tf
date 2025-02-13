@@ -190,17 +190,16 @@ variable "gke_machine_type" {
   description = "variable untuk machine type gke cluster"
 }
 
-## Variable untuk GKE
-variable "tenant" {
+variable "pod_secondary_ip_range_name" {
   default     = ""
   type        = string
-  description = "variable untuk nama gke multi tenant"
+  description = "nama secondary ip range subnet untuk pod"
 }
 
-variable "tenant2" {
-  default     = ""
-  type        = string
-  description = "variable untuk nama gke multi tenant2"
+variable "service_secondary_ip_range_name" {
+  default = ""
+  type = string
+  description = "nama secondary ip range subnet untuk service"
 }
 
 variable "cluster_name" {
@@ -231,6 +230,18 @@ variable "labels" {
   default     = ""
   type        = string
   description = "variable untuk label nodepools"
+}
+
+## Variable untuk GKE multi tenant
+variable "node_pools" {
+  default = {}
+  type    = map(object({
+    node_count    = string
+    machine_type  = string
+    enable_gvisor = bool
+    labels        = map(string)
+  }))
+  description = "variable untuk node pools gke multi tenant"
 }
 
 ## Variable untuk cloud storage
@@ -332,6 +343,12 @@ variable "ingress" {
   default     = ""
   type        = string
   description = "Tipe ingress yang akan digunakan untuk cloud run"
+}
+
+variable "lb_name" {
+  default     = ""
+  type        = string
+  description = "Nama Load Balancer untuk Cloud run"
 }
 
 variable "cloud_run_services" {

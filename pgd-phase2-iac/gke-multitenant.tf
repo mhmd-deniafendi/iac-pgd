@@ -1,5 +1,5 @@
-module "gke" {
-  source                          = "../modules/std-resources/gke"
+module "gke-multitenant" {
+  source                          = "../modules/std-resources/gke-multitenant"
   project_host_id                 = var.project_host_id
   service_project                 = var.service_project
   region                          = var.region
@@ -9,11 +9,9 @@ module "gke" {
   service_secondary_ip_range_name = var.service_secondary_ip_range_name
   initial_node_count              = var.initial_node_count
   env                             = var.env
-  instance_tags                   = var.instance_tags
-  nodepool_name                   = var.nodepool_name
   node_count                      = var.node_count
-  machine_type                    = var.machine_type
   network_name                    = var.network_name
   subnetwork_name                 = var.subnetwork_name
+  node_pools                      = var.node_pools
   depends_on                      = [module.create-project,module.attach-project-to-shared-vpc,module.enable-svc-api,module.assign-default-rsc-sa]
 }

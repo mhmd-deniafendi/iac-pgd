@@ -38,10 +38,6 @@ resource "google_container_cluster" "gke" {
     mode = "BASIC"
   }
 
-  node_config {
-    tags = var.instance_tags
-  }
-
   resource_labels = {
     env = var.env
   }
@@ -49,12 +45,24 @@ resource "google_container_cluster" "gke" {
 
 ## Untuk konfigurasi node pool
 resource "google_container_node_pool" "nodepool" {
-  name               = var.nodepool_name
-  location           = var.zone
-  cluster            = google_container_cluster.gke.name
-  node_count         = var.node_count
+  provider    = "google-beta" 
+  for_each    = var.node_pools
+  name        = each.key
+  location    = var.zone
+  cluster     = google_container_cluster.gke.name
+  node_count  = each.value.node_count
 
   node_config {
-    machine_type = var.machine_type
+    machine_type = each.value.machine_type
+    image_type   = "COS_CONTAINERD"
+    labels       = each.value.labels
+
+    # Konfigurasi GKE sandbox hanya jika enable_gvisor = true
+    dynamic "sandbox_config" {
+      for_each = each.value.enable_gvisor ? [1] : []
+      content {
+        sandbox_type = "gvisor"
+      }
+    }
   }
 }
