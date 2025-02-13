@@ -125,7 +125,7 @@ authorized_networks = [
   }
 ]
 
-### Value untuk cloud run
+### Contoh value untuk cloud run
 ingress = "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER" ## value yang valid: INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER, INGRESS_TRAFFIC_ALL, INGRESS_TRAFFIC_INTERNAL_ONLY
 lb_name = "ckid-test-ilb"
 cloud_run_services = [
