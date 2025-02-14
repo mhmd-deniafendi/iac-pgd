@@ -31,6 +31,7 @@ resource "google_sql_database_instance" "cloud_sql" {
     ip_configuration {
       ipv4_enabled    = false
       private_network = data.google_compute_network.network.self_link
+      enable_private_path_for_google_cloud_services = true
 
       dynamic "authorized_networks" {
         for_each = var.authorized_networks
