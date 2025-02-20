@@ -7,7 +7,7 @@ env             = "dev"
 project_name    = "pgd-dev-iac-ckidtf"
 project_id      = "pgd-dev-iac-ckidtf"
 folder_id       = "folders/898970906005"
-billing_account = "0156C8-36A651-D54AD0"
+billing_account = "xxxxxx-xxxxxx-xxxxxx"
 deletion_policy = "DELETE"
 
 ### Value untuk attach project ke shared vpc project
@@ -62,11 +62,13 @@ machine_type       = "n1-standard-4"
 
 ### Value untuk GKE nodepool multi tenant
 node_pools = {
-  "nodepool-general" = {
+  "general-nodepool" = {
     node_count    = "1"
     machine_type  = "e2-medium"
     enable_gvisor = false
     labels = {}
+    disk_size_gb  = 30 ## Min 10 max 100
+    disk_type     = "pd-standard" ## (contoh:'pd-standard', 'pd-balanced' or 'pd-ssd')
   },
   "sandbox-nodepool" = {
     node_count    = "1"
@@ -75,6 +77,8 @@ node_pools = {
     labels = {
       "app" = "crm"
     }
+    disk_size_gb  = 30 ## Min 10 max 100
+    disk_type     = "pd-standard" ## (contoh:'pd-standard', 'pd-balanced' or 'pd-ssd')
   }
 }
 

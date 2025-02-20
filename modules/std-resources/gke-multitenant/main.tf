@@ -34,6 +34,10 @@ resource "google_container_cluster" "gke" {
     workload_pool = "${data.google_project.svc_project.project_id}.svc.id.goog"
   }
 
+  secret_manager_config {
+    enabled = true
+  }
+
   security_posture_config {
     mode = "BASIC"
   }
@@ -56,6 +60,8 @@ resource "google_container_node_pool" "nodepool" {
     machine_type = each.value.machine_type
     image_type   = "COS_CONTAINERD"
     labels       = each.value.labels
+    disk_size_gb = each.value.disk_size_gb
+    disk_type    = each.value.disk_type
 
     # Konfigurasi GKE sandbox hanya jika enable_gvisor = true
     dynamic "sandbox_config" {
