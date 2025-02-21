@@ -375,3 +375,31 @@ variable "percent" {
   type        = number
   description = "Persentase traffic pada cloud run yang sudah di deploy"
 }
+
+### Variabel untuk artifact registry
+variable "artifacts_repositories_dev" {
+  default = []
+  type    = list(object({
+    name          = string
+    description   = optional(string, "")
+  }))
+  description = "value untuk repository artifact registry dev"
+}
+
+variable "artifacts_repositories_stg" {
+  default = []
+  type    = list(object({
+    name        = string
+    description = optional(string, "")
+  }))
+  description = "value untuk repository artifact registry staging"
+}
+
+variable "artifacts_repositories_prd" {
+  default = []
+  type    = list(object({
+    name        = string
+    description = optional(string, "")
+  }))
+  description = "value untuk repository artifact registry production"
+}

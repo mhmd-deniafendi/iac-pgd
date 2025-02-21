@@ -145,3 +145,26 @@ cloud_run_services = [
 location     = "asia-southeast2"
 percent      = 100
 traffic_type = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
+
+### Contoh value untuk artifact registry
+## Artifact Registry untuk environment dev
+artifacts_repositories_dev = [
+  {
+    name = "pgd-dev-iac-ckidtf"
+    description   = "Artifact Registry for dev environment" ## optional
+  }
+]
+## Artifact Registry untuk environment staging
+artifacts_repositories_stg = [
+  {
+    name = ""
+    description   = "" ## optinal
+  }
+]
+## Artifact Registry untuk environment production
+artifacts_repositories_prd = [
+  {
+    name = ""
+    description   = "" ## optinal
+  }
+]
