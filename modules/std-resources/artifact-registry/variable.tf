@@ -1,3 +1,8 @@
+variable "env" {
+  default = ""
+  type    = string
+}
+
 variable "location" {
   default = ""
   type    = string

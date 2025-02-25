@@ -65,6 +65,8 @@ variable "node_pools" {
     machine_type  = string
     enable_gvisor = bool
     labels        = map(string)
+    disk_size_gb  = string
+    disk_type     = string
   }))
 }
 

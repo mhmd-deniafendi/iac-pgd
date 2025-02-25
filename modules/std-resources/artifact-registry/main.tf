@@ -10,6 +10,10 @@ resource "google_artifact_registry_repository" "central-artifact-dev" {
   repository_id = each.value.name
   description   = each.value.description
   format        = "DOCKER"
+
+  effective_labels = {
+    "env" = var.env
+  }
 }
 
 ## Artifact Registry untuk environment staging
@@ -24,6 +28,10 @@ resource "google_artifact_registry_repository" "central-artifact-stg" {
   repository_id = each.value.name
   description   = each.value.description
   format        = "DOCKER"
+
+  effective_labels = {
+    "env" = var.env
+  }
 }
 
 ## Artifact Registry untuk environment production
@@ -38,4 +46,8 @@ resource "google_artifact_registry_repository" "central-artifact-prd" {
   repository_id = each.value.name
   description   = each.value.description
   format        = "DOCKER"
+
+  effective_labels = {
+    "env" = var.env
+  }
 }
